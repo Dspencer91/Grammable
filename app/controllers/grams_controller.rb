@@ -15,7 +15,7 @@ class GramsController < ApplicationController
   if @gram.user != current_user
     return render plain: 'Forbidden :(', status: :forbidden
   end
-  @gram.update_attributes(gram_params)
+  @gram.update_attributes(grams_params)
   if @gram.valid?
     redirect_to root_path
   else
@@ -56,6 +56,6 @@ end
   private
 
   def grams_params
-    params.require(:gram).permit(:message, :image)
+    params.require(:gram).permit(:message, :picture)
   end
 end
